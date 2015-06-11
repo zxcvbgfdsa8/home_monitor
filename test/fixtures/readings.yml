@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  inside_temperature: 1.5
+  outside_temperature: 1.5
+
+two:
+  inside_temperature: 1.5
+  outside_temperature: 1.5

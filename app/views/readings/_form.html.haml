@@ -1,0 +1,16 @@
+= form_for @reading do |f|
+  - if @reading.errors.any?
+    #error_explanation
+      %h2= "#{pluralize(@reading.errors.count, "error")} prohibited this reading from being saved:"
+      %ul
+        - @reading.errors.full_messages.each do |msg|
+          %li= msg
+
+  .field
+    = f.label :inside_temperature
+    = f.text_field :inside_temperature
+  .field
+    = f.label :outside_temperature
+    = f.text_field :outside_temperature
+  .actions
+    = f.submit 'Save'

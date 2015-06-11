@@ -1,0 +1,23 @@
+%h1 Listing readings
+
+%table
+  %thead
+    %tr
+      %th Inside temperature
+      %th Outside temperature
+      %th
+      %th
+      %th
+
+  %tbody
+    - @readings.each do |reading|
+      %tr
+        %td= reading.inside_temperature
+        %td= reading.outside_temperature
+        %td= link_to 'Show', reading
+        %td= link_to 'Edit', edit_reading_path(reading)
+        %td= link_to 'Destroy', reading, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Reading', new_reading_path
