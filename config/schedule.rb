@@ -13,7 +13,7 @@
 #   rake "some:great:rake:task"
 # end
 #
- every 5.minutes do
+ every 10.minutes do
    runner 'Reading.get_reading'
  end
 
