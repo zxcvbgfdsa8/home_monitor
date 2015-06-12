@@ -13,6 +13,9 @@
 #   rake "some:great:rake:task"
 # end
 #
+
+#For RVM
+# job_type :runner, "cd #{path} && RAILS_ENV=development /home/HOME/.rvm/wrappers//RUBY VERSION/bundle exec rails runner ':task' :output"
  every 10.minutes do
    runner 'Reading.get_reading'
  end
