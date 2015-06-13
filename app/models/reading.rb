@@ -1,6 +1,6 @@
 class Reading < ActiveRecord::Base
   def self.get_reading
-    nest = NestThermostat::Nest.new(email: 'zxcvbgfdsa8@gmail.com', password: 'jetaime010')
+    nest = NestThermostat::Nest.new(email: APP_CONFIG['nest_email'], password: APP_CONFIG['nest_password'])
     inside_temp = nest.current_temperature
     client = YahooWeather::Client.new
     response = client.lookup_location('84604')
