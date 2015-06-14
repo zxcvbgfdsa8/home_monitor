@@ -1,0 +1,9 @@
+%p#notice= notice
+
+%p
+  %b Humidity:
+  = @humidity_reading.humidity
+
+= link_to 'Edit', edit_humidity_reading_path(@humidity_reading)
+\|
+= link_to 'Back', humidity_readings_path

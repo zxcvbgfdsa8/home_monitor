@@ -1,0 +1,2 @@
+module HumidityReadingsHelper
+end

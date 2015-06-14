@@ -1,0 +1,21 @@
+%h1 Listing humidity_readings
+
+%table
+  %thead
+    %tr
+      %th Humidity
+      %th
+      %th
+      %th
+
+  %tbody
+    - @humidity_readings.each do |humidity_reading|
+      %tr
+        %td= humidity_reading.humidity
+        %td= link_to 'Show', humidity_reading
+        %td= link_to 'Edit', edit_humidity_reading_path(humidity_reading)
+        %td= link_to 'Destroy', humidity_reading, :method => :delete, :data => { :confirm => 'Are you sure?' }
+
+%br
+
+= link_to 'New Humidity reading', new_humidity_reading_path

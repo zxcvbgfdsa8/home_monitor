@@ -11,7 +11,13 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150611200050) do
+ActiveRecord::Schema.define(version: 20150614152618) do
+
+  create_table "humidity_readings", force: true do |t|
+    t.integer  "humidity"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "readings", force: true do |t|
     t.float    "inside_temperature"
