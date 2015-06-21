@@ -41,3 +41,4 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin]
 gem 'whenever', :require => false
 gem 'nest_thermostat'
 gem 'yahoo-weather'
+gem 'rack-cors', :require => 'rack/cors'
