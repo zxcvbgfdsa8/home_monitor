@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title>Home Monitor</title>
+    <script type="text/javascript" src="assets/jquery.js"></script>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+        google.load('visualization', '1.1', {packages: ['line']});
+        google.setOnLoadCallback(drawChart);
+
+        function drawChart() {
+            $.ajax({
+                url: "./readings.json",
+            }).done(function (readings) {
+                var data = new google.visualization.DataTable();
+                data.addColumn('date', 'Date');
+                data.addColumn('number', 'Inside Temperature');
+                data.addColumn('number', 'Outside Temperature');
+
+                var length = readings.length;
+                for (var i = 0; i < length; i++) {
+                    var entry = [new Date(readings[i].created_at), readings[i].inside_temperature, readings[i].outside_temperature]
+                    console.log(entry);
+                    data.addRows([entry]);
+                }
+
+                var options = {
+                    chart: {
+                        title: 'Temperature',
+                        subtitle: 'in degrees Fahrenheit.'
+                    },
+                    width: 900,
+                    height: 500
+                };
+
+                var chart = new google.charts.Line(document.getElementById('linechart_material'));
+
+                chart.draw(data, options);
+            });
+        }
+    </script>
+</head>
+<body>
+<div id="linechart_material"></div>
+</body>
+</html>
