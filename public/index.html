@@ -11,8 +11,7 @@
 
         function drawChart() {
             $.ajax({
-                //url: "http://ec2.johansenwest.com:3000/readings.json",
-                url: "http://localhost:3000/nest_report.json",
+                url: "./nest_report.json",
             }).done(function (readings) {
                 var data = new google.visualization.DataTable();
                 data.addColumn('string', 'Date');
