@@ -11,17 +11,18 @@
 
         function drawChart() {
             $.ajax({
-                url: "./readings.json",
+                //url: "http://ec2.johansenwest.com:3000/readings.json",
+                url: "http://localhost:3000/nest_report.json",
             }).done(function (readings) {
                 var data = new google.visualization.DataTable();
-                data.addColumn('date', 'Date');
+                data.addColumn('string', 'Date');
                 data.addColumn('number', 'Inside Temperature');
                 data.addColumn('number', 'Outside Temperature');
+                data.addColumn('number', 'Humidity');
 
                 var length = readings.length;
                 for (var i = 0; i < length; i++) {
-                    var entry = [new Date(readings[i].created_at), readings[i].inside_temperature, readings[i].outside_temperature]
-                    console.log(entry);
+                    var entry = [readings[i].date, readings[i].inside_temperature, readings[i].outside_temperature, readings[i].humidity]
                     data.addRows([entry]);
                 }
 

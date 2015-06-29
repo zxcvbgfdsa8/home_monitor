@@ -1,0 +1,21 @@
+%h1 Nest Data
+
+%table
+  %thead
+    %tr
+      %th Time
+      %th Inside temperature
+      %th Outside temperature
+      %th Humidity
+      %th
+      %th
+
+  %tbody
+    - @nest_data.each do |date, datum|
+      %tr
+        %td= date
+        %td= datum[:inside_temperature]
+        %td= datum[:outside_temperature]
+        %td= datum[:humidity]
+
+%br
